@@ -18,9 +18,9 @@ body {
     text-align: center;
     font-size: 36px;
     font-style: italic;
-    margin-bottom: 20px;
   }
   .days {
+    margin: 20px 0;
     overflow-x: auto;
     overflow-y: hidden;
     white-space: nowrap;
@@ -31,6 +31,23 @@ body {
       width: 36px;
       margin: 0 3px;
       background: black;
+    }
+  }
+  .submit-log {
+    @extend .box-shadow;
+    input[type="range"] {
+    }
+    textarea {
+      margin: 15px 0;
+      resize: none;
+      width: 100%;
+      @extend .box-shadow;
+    }
+    button[type="submit"] {
+      cursor: pointer;
+      padding: 8px 20px;
+      border: 1px solid black;
+      border-radius: 4px;
     }
   }
 }
