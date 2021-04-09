@@ -1,5 +1,12 @@
 @import "reset";
 @import "responsive";
 
+body {
+  font-family: "Roboto", sans-serif;
+}
+
 .App {
+  .heading {
+    font-size: 24px;
+  }
 }
