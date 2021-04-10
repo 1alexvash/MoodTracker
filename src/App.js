@@ -1,6 +1,3 @@
-// TODO: import moment library
-// TODO: after adding new item to the days add date mark
-// TODO: check if the date mark is unique
 // TODO: hide submit log if the user already commited
 // FIXME: fix bug with aligning of bars
 // TODO: add some info what's the purpose of this application
@@ -16,6 +13,7 @@ import moment from "moment";
 import "./scsss/main.scss";
 
 const App = () => {
+  const today = moment().format("dddd, MMMM Do, YYYY");
   const [days, setDays] = useState([
     {
       happiness: 55,
@@ -53,6 +51,7 @@ const App = () => {
   return (
     <div className="App">
       <h1 className="heading">Mood Tracker</h1>
+      <div className="today">Today is {today}</div>
       <div className="days">
         {days.map((day, index) => (
           <div
