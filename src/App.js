@@ -1,7 +1,6 @@
-// TODO: hide submit log if the user already commited
 // FIXME: fix bug with aligning of bars
 // TODO: add some info what's the purpose of this application
-// TODO: draw an image
+// TODO: draw a logo
 // TODO: make bars clickable
 // => after click show information
 // TODO: save date to localStorage
@@ -15,21 +14,22 @@ import "./scsss/main.scss";
 const App = () => {
   const today = moment().format("dddd, MMMM Do, YYYY");
 
+  const [day, setDay] = useState(null);
   const [days, setDays] = useState([
     {
       happiness: 55,
       text: "55",
-      date: new Date(),
+      date: moment().subtract(3, "days").format("dddd, MMMM Do, YYYY"),
     },
     {
       happiness: 50,
       text: "50",
-      date: new Date(),
+      date: moment().subtract(2, "days").format("dddd, MMMM Do, YYYY"),
     },
     {
       happiness: 45,
-      text: "45",
-      date: new Date(),
+      text: "I had kinda depression, but to my lack I was able to deal with it",
+      date: moment().subtract(1, "days").format("dddd, MMMM Do, YYYY"),
     },
   ]);
   const [happiness, setHappiness] = useState(75);
@@ -39,7 +39,6 @@ const App = () => {
 
   const submitLog = (event) => {
     event.preventDefault();
-    console.log("happiness:", happiness);
     setDays([
       ...days,
       {
@@ -61,9 +60,23 @@ const App = () => {
             className="day"
             key={index}
             style={{ height: `${day.happiness}%` }}
+            onClick={() => setDay(day)}
           />
         ))}
       </div>
+      {day && (
+        <div className="day-details">
+          <p className="score">
+            Happiness score: <strong>{day.happiness}</strong>
+          </p>
+          <strong>Note:</strong>
+          <p className="text">{day.text}</p>
+          <p className="date">{day.date}</p>
+          <div className="close" onClick={() => setDay(null)}>
+            ❌
+          </div>
+        </div>
+      )}
       {/* TODO: add condition if already logged */}
       {!loggedToday ? (
         <form onSubmit={submitLog} className="submit-log">
