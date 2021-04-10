@@ -34,6 +34,7 @@ const App = () => {
     },
   ]);
   const [happiness, setHappiness] = useState(75);
+  const [text, setText] = useState("");
 
   const submitLog = (event) => {
     event.preventDefault();
@@ -42,11 +43,11 @@ const App = () => {
       ...days,
       {
         happiness,
-        // text,
+        text,
         date: moment().format("dddd, MMMM Do, YYYY"),
       },
     ]);
-    // setText("");
+    setText("");
   };
 
   return (
@@ -70,7 +71,13 @@ const App = () => {
           value={happiness}
           onChange={(e) => setHappiness(e.target.value)}
         />
-        <textarea placeholder="Add additional information" rows="5" />
+        <textarea
+          required
+          placeholder="Add additional information"
+          rows="5"
+          value={text}
+          onChange={(e) => setText(e.target.value)}
+        />
         <button type="submit">Submit Log</button>
       </form>
     </div>
