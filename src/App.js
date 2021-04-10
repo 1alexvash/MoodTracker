@@ -36,7 +36,6 @@ const App = () => {
   const [text, setText] = useState("");
 
   const loggedToday = days.some((day) => day.date === today);
-  console.log("loggedToday:", loggedToday);
 
   const submitLog = (event) => {
     event.preventDefault();
@@ -66,23 +65,30 @@ const App = () => {
         ))}
       </div>
       {/* TODO: add condition if already logged */}
-      <form onSubmit={submitLog} className="submit-log">
-        <input
-          type="range"
-          min="0"
-          max="100"
-          value={happiness}
-          onChange={(e) => setHappiness(e.target.value)}
-        />
-        <textarea
-          required
-          placeholder="Add additional information"
-          rows="5"
-          value={text}
-          onChange={(e) => setText(e.target.value)}
-        />
-        <button type="submit">Submit Log</button>
-      </form>
+      {!loggedToday ? (
+        <form onSubmit={submitLog} className="submit-log">
+          <input
+            type="range"
+            min="0"
+            max="100"
+            value={happiness}
+            onChange={(e) => setHappiness(e.target.value)}
+          />
+          <textarea
+            required
+            placeholder="Add additional information"
+            rows="5"
+            value={text}
+            onChange={(e) => setText(e.target.value)}
+          />
+          <button type="submit">Submit Log</button>
+        </form>
+      ) : (
+        <div>
+          <p>That's it for today</p>
+          <p>Come back to log tomorrow</p>
+        </div>
+      )}
     </div>
   );
 };
