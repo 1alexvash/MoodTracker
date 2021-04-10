@@ -27,12 +27,18 @@ body {
     font-size: 14px;
   }
   .days {
-    margin: 20px 0;
-    overflow-x: auto;
+    overflow-x: visible;
     overflow-y: hidden;
     white-space: nowrap;
+    margin: 20px 0;
     height: 200px;
     @extend .box-shadow;
+    .scratch {
+      width: 2px;
+      background: rgba(navy, 0.5);
+      height: 100%;
+      display: inline-block;
+    }
     .day {
       cursor: pointer;
       display: inline-block;

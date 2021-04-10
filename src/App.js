@@ -1,8 +1,8 @@
 // FIXME: fix bug with aligning of bars
 // TODO: add some info what's the purpose of this application
 // TODO: draw a logo
-// TODO: make bars clickable
-// => after click show information
+// TODO: add overall design look and feel
+// TODO: add mobile version
 
 import React, { useState } from "react";
 
@@ -64,6 +64,7 @@ const App = () => {
       <h1 className="heading">Mood Tracker</h1>
       <div className="today">Today is {today}</div>
       <div className="days">
+        <div className="scratch"></div>
         {days.map((day, index) => (
           <div
             className="day"
@@ -72,6 +73,7 @@ const App = () => {
             onClick={() => setDay(day)}
           />
         ))}
+        <div className="scratch"></div>
       </div>
       {day && (
         <div className="day-details">
