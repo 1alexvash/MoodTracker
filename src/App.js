@@ -14,6 +14,7 @@ import "./scsss/main.scss";
 
 const App = () => {
   const today = moment().format("dddd, MMMM Do, YYYY");
+
   const [days, setDays] = useState([
     {
       happiness: 55,
@@ -33,6 +34,9 @@ const App = () => {
   ]);
   const [happiness, setHappiness] = useState(75);
   const [text, setText] = useState("");
+
+  const loggedToday = days.some((day) => day.date === today);
+  console.log("loggedToday:", loggedToday);
 
   const submitLog = (event) => {
     event.preventDefault();
