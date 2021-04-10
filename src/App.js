@@ -11,13 +11,15 @@
 
 import React, { useState } from "react";
 
+import moment from "moment";
+
 import "./scsss/main.scss";
 
 const App = () => {
   const [days, setDays] = useState([
     {
-      happiness: 51,
-      text: "50",
+      happiness: 55,
+      text: "55",
       date: new Date(),
     },
     {
@@ -26,8 +28,8 @@ const App = () => {
       date: new Date(),
     },
     {
-      happiness: 49,
-      text: "50",
+      happiness: 45,
+      text: "45",
       date: new Date(),
     },
   ]);
@@ -36,7 +38,15 @@ const App = () => {
   const submitLog = (event) => {
     event.preventDefault();
     console.log("happiness:", happiness);
-    setDays([...days, happiness]);
+    setDays([
+      ...days,
+      {
+        happiness,
+        // text,
+        date: moment().format("dddd, MMMM Do, YYYY"),
+      },
+    ]);
+    // setText("");
   };
 
   return (
