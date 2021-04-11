@@ -7,7 +7,7 @@ body {
 
 .box-shadow {
   padding: 10px 15px;
-  box-shadow: 0 0 5px rgba(black, 0.7);
+  box-shadow: 0 0 5px rgba(black, 0.5);
 }
 
 .App {
@@ -27,15 +27,36 @@ body {
     font-size: 14px;
   }
   .days {
+    position: relative;
     overflow-x: visible;
     overflow-y: hidden;
     white-space: nowrap;
     margin: 20px 0;
     height: 200px;
+    .locked {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(black, 0.7);
+      text-align: center;
+      padding: 10px 15px;
+      img {
+        width: 96px;
+        height: 96px;
+      }
+      .advice {
+        color: white;
+        font-size: 14px;
+        font-style: italic;
+        text-shadow: 2px 2px 2px black;
+      }
+    }
     @extend .box-shadow;
     .scratch {
       width: 2px;
-      background: rgba(navy, 0.5);
+      background: rgba(navy, 0.2);
       height: 100%;
       display: inline-block;
     }

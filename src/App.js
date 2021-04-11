@@ -1,5 +1,6 @@
-// FIXME: fix bug with aligning of bars
-// TODO: add some info what's the purpose of this application
+// TODO: try using vertical-align to align items in the column
+
+// TODO: show some information window in case of 0 logs
 // TODO: draw a logo
 // TODO: add overall design look and feel
 // TODO: add mobile version
@@ -9,6 +10,8 @@ import React, { useState } from "react";
 import moment from "moment";
 
 import "./scsss/main.scss";
+
+import lockImg from "./images/lock.png";
 
 const App = () => {
   const today = moment().format("dddd, MMMM Do, YYYY");
@@ -74,6 +77,14 @@ const App = () => {
           />
         ))}
         <div className="scratch"></div>
+        <div className="locked">
+          <img src={lockImg} alt="" />
+          <p className="advice">
+            Track your mood for <b>7 days</b> <br /> to get some valuable
+            insights <br /> on how to increase your overall <br /> well-being
+            and happiness
+          </p>
+        </div>
       </div>
       {day && (
         <div className="day-details">
