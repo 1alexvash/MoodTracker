@@ -4,7 +4,6 @@
 // todo: make a day active when clicked on it
 // TODO: draw a logo
 // TODO: add overall design look and feel
-// TODO: add mobile version
 
 import React, { useState } from "react";
 
