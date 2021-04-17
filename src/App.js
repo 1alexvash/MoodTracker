@@ -1,6 +1,6 @@
 // TODO: try using vertical-align to align items in the column
+// https://css-tricks.com/almanac/properties/v/vertical-align/
 
-// TODO: show some information window in case of 0 logs
 // TODO: draw a logo
 // TODO: add overall design look and feel
 // TODO: add mobile version
@@ -67,24 +67,29 @@ const App = () => {
       <h1 className="heading">Mood Tracker</h1>
       <div className="today">Today is {today}</div>
       <div className="days">
-        <div className="scratch"></div>
-        {days.map((day, index) => (
-          <div
-            className="day"
-            key={index}
-            style={{ height: `${day.happiness}%` }}
-            onClick={() => setDay(day)}
-          />
-        ))}
-        <div className="scratch"></div>
-        <div className="locked">
-          <img src={lockImg} alt="" />
-          <p className="advice">
-            Track your mood for <b>7 days</b> <br /> to get some valuable
-            insights <br /> on how to increase your overall <br /> well-being
-            and happiness
-          </p>
-        </div>
+        {days.length ? (
+          <>
+            <div className="scratch"></div>
+            {days.map((day, index) => (
+              <div
+                className="day"
+                key={index}
+                style={{ height: `${day.happiness}%` }}
+                onClick={() => setDay(day)}
+              />
+            ))}
+            <div className="scratch"></div>
+          </>
+        ) : (
+          <div className="locked">
+            <img src={lockImg} alt="" />
+            <p className="advice">
+              Track your mood for <b>7 days</b> <br /> to get some valuable
+              insights <br /> on how to increase your overall <br /> well-being
+              and happiness
+            </p>
+          </div>
+        )}
       </div>
       {day && (
         <div className="day-details">
