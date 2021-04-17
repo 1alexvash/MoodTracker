@@ -6,7 +6,7 @@ body {
 }
 
 .box-shadow {
-  padding: 10px 15px;
+  padding: 10px;
   box-shadow: 0 0 5px rgba(black, 0.5);
 }
 
@@ -33,6 +33,25 @@ body {
     white-space: nowrap;
     margin: 20px 0;
     height: 200px;
+    @extend .box-shadow;
+    .scratch {
+      width: 2px;
+      margin: 0 2px;
+      background: rgba(navy, 0.2);
+      height: 100%;
+      display: inline-block;
+    }
+    .day {
+      cursor: pointer;
+      display: inline-block;
+      width: 36px;
+      margin: 0 3px;
+      background: black;
+      transition: 0.3s;
+      &:hover {
+        box-shadow: 0 0 5px 1px rgba(black, 0.7);
+      }
+    }
     .locked {
       position: absolute;
       top: 0;
@@ -53,29 +72,11 @@ body {
         text-shadow: 2px 2px 2px black;
       }
     }
-    @extend .box-shadow;
-    .scratch {
-      width: 2px;
-      background: rgba(navy, 0.2);
-      height: 100%;
-      display: inline-block;
-    }
-    .day {
-      cursor: pointer;
-      display: inline-block;
-      width: 36px;
-      margin: 0 3px;
-      background: black;
-      transition: 0.3s;
-      &:hover {
-        box-shadow: 0 0 5px 1px rgba(black, 0.7);
-      }
-    }
   }
   .day-details {
     position: relative;
-    @extend .box-shadow;
     margin-bottom: 20px;
+    @extend .box-shadow;
     .date {
       font-style: italic;
       font-size: 14px;
@@ -104,6 +105,10 @@ body {
       resize: none;
       width: 100%;
       @extend .box-shadow;
+    }
+    .first-log {
+      color: green;
+      margin-bottom: 15px;
     }
     button[type="submit"] {
       cursor: pointer;

@@ -121,6 +121,9 @@ const App = () => {
             value={text}
             onChange={(e) => setText(e.target.value)}
           />
+          {days.length === 0 && (
+            <div className="first-log">It's time for the first log</div>
+          )}
           <button type="submit">Submit Log</button>
         </form>
       ) : (
