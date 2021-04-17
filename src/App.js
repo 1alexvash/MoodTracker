@@ -1,6 +1,7 @@
 // TODO: try using vertical-align to align items in the column
 // https://css-tricks.com/almanac/properties/v/vertical-align/
 
+// todo: make a day active when clicked on it
 // TODO: draw a logo
 // TODO: add overall design look and feel
 // TODO: add mobile version
@@ -16,28 +17,9 @@ import lockImg from "./images/lock.png";
 const App = () => {
   const today = moment().format("dddd, MMMM Do, YYYY");
 
-  const [day, setDay] = useState(null);
+  const [selectedDay, setSelectedDay] = useState(null);
   const [days, setDays] = useState(
-    localStorage.days
-      ? JSON.parse(localStorage.days)
-      : [
-          {
-            happiness: 55,
-            text: "55",
-            date: moment().subtract(3, "days").format("dddd, MMMM Do, YYYY"),
-          },
-          {
-            happiness: 50,
-            text: "50",
-            date: moment().subtract(2, "days").format("dddd, MMMM Do, YYYY"),
-          },
-          {
-            happiness: 45,
-            text:
-              "I had kinda depression, but to my lack I was able to deal with it",
-            date: moment().subtract(1, "days").format("dddd, MMMM Do, YYYY"),
-          },
-        ]
+    localStorage.days ? JSON.parse(localStorage.days) : []
   );
   const [happiness, setHappiness] = useState(75);
   const [text, setText] = useState("");
@@ -52,7 +34,7 @@ const App = () => {
       {
         happiness,
         text,
-        date: moment().format("dddd, MMMM Do, YYYY"),
+        date: today,
       },
     ];
 
@@ -72,10 +54,14 @@ const App = () => {
             <div className="scratch"></div>
             {days.map((day, index) => (
               <div
-                className="day"
+                className={
+                  selectedDay && selectedDay.date === day.date
+                    ? "day active"
+                    : "day"
+                }
                 key={index}
                 style={{ height: `${day.happiness}%` }}
-                onClick={() => setDay(day)}
+                onClick={() => setSelectedDay(day)}
               />
             ))}
             <div className="scratch"></div>
@@ -91,20 +77,23 @@ const App = () => {
           </div>
         )}
       </div>
-      {day && (
+      {selectedDay && (
         <div className="day-details">
           <p className="score">
-            Happiness score: <strong>{day.happiness}</strong>
+            Happiness score: <strong>{selectedDay.happiness}</strong>
           </p>
           <strong>Note:</strong>
-          <p className="text">{day.text}</p>
-          <p className="date">{day.date}</p>
-          <div className="close" onClick={() => setDay(null)}>
+          <p className="text">{selectedDay.text}</p>
+          <p className="date">{selectedDay.date}</p>
+          <div
+            className="close"
+            onClick={() => setSelectedDay(null)}
+            title="close"
+          >
             ❌
           </div>
         </div>
       )}
-      {/* TODO: add condition if already logged */}
       {!loggedToday ? (
         <form onSubmit={submitLog} className="submit-log">
           <input
@@ -128,8 +117,8 @@ const App = () => {
         </form>
       ) : (
         <div>
-          <p>That's it for today</p>
-          <p>Come back to log tomorrow</p>
+          <p>That's it for today ✅</p>
+          <p>Come back tomorrow</p>
         </div>
       )}
     </div>
