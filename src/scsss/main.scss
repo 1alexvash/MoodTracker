@@ -29,7 +29,7 @@ body {
   margin: auto;
   @extend .box-shadow;
   @include responsive(480px) {
-    width: 100%;
+    width: calc(100% - 20px);
   }
   header {
     h1 {
