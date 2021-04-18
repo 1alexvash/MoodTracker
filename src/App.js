@@ -1,8 +1,3 @@
-// todo: make a day active when clicked on it
-// TOOD: try to use this solution instead of display block
-// https://codepen.io/nelson137/pen/KvOzMR
-// TODO: draw a logo
-
 import React, { useState } from "react";
 
 import moment from "moment";
@@ -41,83 +36,90 @@ const App = () => {
     setText("");
   };
 
+  const headerInfoComponent = (
+    <header>
+      <h1>Mood Tracker</h1>
+      <div className="today">Today is {today}</div>
+    </header>
+  );
+
+  const daysComponent = (
+    <div className="flex-scroll">
+      <div className="scratch"></div>
+      {days.map((day, index) => (
+        <div
+          className={
+            selectedDay && selectedDay.date === day.date ? "day active" : "day"
+          }
+          key={index}
+          style={{ height: `${day.happiness}%` }}
+          onClick={() => setSelectedDay(day)}
+        />
+      ))}
+      <div className="scratch"></div>
+    </div>
+  );
+
+  const lockComponent = (
+    <div className="locked">
+      <img src={lockImg} alt="" />
+      <p className="advice">
+        Track your mood for <b>7 days</b> <br /> to get some valuable insights{" "}
+        <br /> on how to increase your overall <br /> well-being and happiness
+      </p>
+    </div>
+  );
+
+  const dayDetailsComponent = selectedDay && (
+    <div className="day-details">
+      <p className="score">
+        Happiness score: <strong>{selectedDay.happiness}</strong>
+      </p>
+      <strong>Note:</strong>
+      <p className="text">{selectedDay.text}</p>
+      <p className="date">{selectedDay.date}</p>
+      <div className="close" onClick={() => setSelectedDay(null)} title="close">
+        ❌
+      </div>
+    </div>
+  );
+
+  const formComponent = (
+    <form onSubmit={submitLog} className="submit-log">
+      <input
+        type="range"
+        min="0"
+        max="100"
+        value={happiness}
+        onChange={(e) => setHappiness(e.target.value)}
+      />
+      <textarea
+        required
+        placeholder="Add additional information"
+        rows="5"
+        value={text}
+        onChange={(e) => setText(e.target.value)}
+      />
+      {days.length === 0 && (
+        <div className="first-log">It's time for the first log</div>
+      )}
+      <button type="submit">Submit Log</button>
+    </form>
+  );
+
+  const infoSuccessComponent = (
+    <div>
+      <p>That's it for today ✅</p>
+      <p>Come back tomorrow</p>
+    </div>
+  );
+
   return (
     <div className="App">
-      <h1 className="heading">Mood Tracker</h1>
-      <div className="today">Today is {today}</div>
-      <div className="days">
-        {days.length ? (
-          <div className="flex-scroll">
-            <div className="scratch"></div>
-            {days.map((day, index) => (
-              <div
-                className={
-                  selectedDay && selectedDay.date === day.date
-                    ? "day active"
-                    : "day"
-                }
-                key={index}
-                style={{ height: `${day.happiness}%` }}
-                onClick={() => setSelectedDay(day)}
-              />
-            ))}
-            <div className="scratch"></div>
-          </div>
-        ) : (
-          <div className="locked">
-            <img src={lockImg} alt="" />
-            <p className="advice">
-              Track your mood for <b>7 days</b> <br /> to get some valuable
-              insights <br /> on how to increase your overall <br /> well-being
-              and happiness
-            </p>
-          </div>
-        )}
-      </div>
-      {selectedDay && (
-        <div className="day-details">
-          <p className="score">
-            Happiness score: <strong>{selectedDay.happiness}</strong>
-          </p>
-          <strong>Note:</strong>
-          <p className="text">{selectedDay.text}</p>
-          <p className="date">{selectedDay.date}</p>
-          <div
-            className="close"
-            onClick={() => setSelectedDay(null)}
-            title="close"
-          >
-            ❌
-          </div>
-        </div>
-      )}
-      {!loggedToday ? (
-        <form onSubmit={submitLog} className="submit-log">
-          <input
-            type="range"
-            min="0"
-            max="100"
-            value={happiness}
-            onChange={(e) => setHappiness(e.target.value)}
-          />
-          <textarea
-            required
-            placeholder="Add additional information"
-            rows="5"
-            value={text}
-            onChange={(e) => setText(e.target.value)}
-          />
-          {days.length === 0 && (
-            <div className="first-log">It's time for the first log</div>
-          )}
-          <button type="submit">Submit Log</button>
-        </form>
-      ) : (
-        <div>
-          <p>That's it for today ✅</p>
-          <p>Come back tomorrow</p>
-        </div>
-      )}
+      {headerInfoComponent}
+      <div className="days">{days.length ? daysComponent : lockComponent}</div>
+      {dayDetailsComponent}
+      {!loggedToday ? formComponent : infoSuccessComponent}
     </div>
   );
 };
