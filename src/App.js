@@ -89,7 +89,7 @@ const App = () => {
       Score: {happiness}
       <input
         type="range"
-        min="0"
+        min="1"
         max="100"
         value={happiness}
         onChange={(e) => setHappiness(e.target.value)}
