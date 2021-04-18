@@ -86,6 +86,7 @@ const App = () => {
 
   const formComponent = (
     <form onSubmit={submitLog} className="submit-log">
+      Score: {happiness}
       <input
         type="range"
         min="0"
