@@ -1,9 +1,7 @@
-// TODO: try using vertical-align to align items in the column
-// https://css-tricks.com/almanac/properties/v/vertical-align/
-
 // todo: make a day active when clicked on it
+// TOOD: try to use this solution instead of display block
+// https://codepen.io/nelson137/pen/KvOzMR
 // TODO: draw a logo
-// TODO: add overall design look and feel
 
 import React, { useState } from "react";
 
