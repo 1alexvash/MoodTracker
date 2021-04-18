@@ -124,6 +124,7 @@ body {
     input[type="range"] {
     }
     textarea {
+      font-family: "Roboto";
       margin: 15px 0;
       resize: none;
       width: 100%;
@@ -134,6 +135,7 @@ body {
       margin-bottom: 15px;
     }
     button[type="submit"] {
+      font-family: "Roboto";
       color: white;
       background: linear-gradient(blue, darkblue);
       cursor: pointer;
