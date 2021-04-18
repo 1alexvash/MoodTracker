@@ -44,12 +44,15 @@ body {
     font-size: 14px;
   }
   .days {
-    position: relative;
-    overflow-x: visible;
-    overflow-y: hidden;
-    white-space: nowrap;
     margin: 20px 0;
     height: 200px;
+    display: flex;
+    overflow: auto;
+    .flex-scroll {
+      display: flex;
+      align-items: baseline;
+    }
+
     @extend .box-shadow;
     .scratch {
       width: 2px;

@@ -47,7 +47,7 @@ const App = () => {
       <div className="today">Today is {today}</div>
       <div className="days">
         {days.length ? (
-          <>
+          <div className="flex-scroll">
             <div className="scratch"></div>
             {days.map((day, index) => (
               <div
@@ -62,7 +62,7 @@ const App = () => {
               />
             ))}
             <div className="scratch"></div>
-          </>
+          </div>
         ) : (
           <div className="locked">
             <img src={lockImg} alt="" />
