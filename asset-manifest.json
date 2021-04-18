@@ -1,20 +1,22 @@
 {
   "files": {
-    "main.css": "/MoodTracker/static/css/main.0255516f.chunk.css",
-    "main.js": "/MoodTracker/static/js/main.82db019d.chunk.js",
-    "main.js.map": "/MoodTracker/static/js/main.82db019d.chunk.js.map",
+    "main.css": "/MoodTracker/static/css/main.5141fcd3.chunk.css",
+    "main.js": "/MoodTracker/static/js/main.3c4bf665.chunk.js",
+    "main.js.map": "/MoodTracker/static/js/main.3c4bf665.chunk.js.map",
     "runtime-main.js": "/MoodTracker/static/js/runtime-main.993e81f6.js",
     "runtime-main.js.map": "/MoodTracker/static/js/runtime-main.993e81f6.js.map",
-    "static/js/2.20985b4d.chunk.js": "/MoodTracker/static/js/2.20985b4d.chunk.js",
-    "static/js/2.20985b4d.chunk.js.map": "/MoodTracker/static/js/2.20985b4d.chunk.js.map",
+    "static/js/2.df723945.chunk.js": "/MoodTracker/static/js/2.df723945.chunk.js",
+    "static/js/2.df723945.chunk.js.map": "/MoodTracker/static/js/2.df723945.chunk.js.map",
     "index.html": "/MoodTracker/index.html",
-    "static/css/main.0255516f.chunk.css.map": "/MoodTracker/static/css/main.0255516f.chunk.css.map",
-    "static/js/2.20985b4d.chunk.js.LICENSE.txt": "/MoodTracker/static/js/2.20985b4d.chunk.js.LICENSE.txt"
+    "static/css/main.5141fcd3.chunk.css.map": "/MoodTracker/static/css/main.5141fcd3.chunk.css.map",
+    "static/js/2.df723945.chunk.js.LICENSE.txt": "/MoodTracker/static/js/2.df723945.chunk.js.LICENSE.txt",
+    "static/media/main.scss": "/MoodTracker/static/media/background.da65d80a.png",
+    "static/media/lock.265fd113.png": "/MoodTracker/static/media/lock.265fd113.png"
   },
   "entrypoints": [
     "static/js/runtime-main.993e81f6.js",
-    "static/js/2.20985b4d.chunk.js",
-    "static/css/main.0255516f.chunk.css",
-    "static/js/main.82db019d.chunk.js"
+    "static/js/2.df723945.chunk.js",
+    "static/css/main.5141fcd3.chunk.css",
+    "static/js/main.3c4bf665.chunk.js"
   ]
 }
