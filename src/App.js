@@ -19,7 +19,6 @@ const App = () => {
   const loggedToday = days.some(
     (day) => moment(day.date).format("dddd, MMMM Do, YYYY") === today
   );
-  console.log("loggedToday:", loggedToday);
 
   const submitLog = (event) => {
     event.preventDefault();
