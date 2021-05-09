@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/MoodTracker/static/css/main.e33c135e.chunk.css",
-    "main.js": "/MoodTracker/static/js/main.da4a7cf2.chunk.js",
-    "main.js.map": "/MoodTracker/static/js/main.da4a7cf2.chunk.js.map",
+    "main.js": "/MoodTracker/static/js/main.464191e0.chunk.js",
+    "main.js.map": "/MoodTracker/static/js/main.464191e0.chunk.js.map",
     "runtime-main.js": "/MoodTracker/static/js/runtime-main.993e81f6.js",
     "runtime-main.js.map": "/MoodTracker/static/js/runtime-main.993e81f6.js.map",
     "static/js/2.f984754e.chunk.js": "/MoodTracker/static/js/2.f984754e.chunk.js",
@@ -17,6 +17,6 @@
     "static/js/runtime-main.993e81f6.js",
     "static/js/2.f984754e.chunk.js",
     "static/css/main.e33c135e.chunk.css",
-    "static/js/main.da4a7cf2.chunk.js"
+    "static/js/main.464191e0.chunk.js"
   ]
 }
