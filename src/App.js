@@ -8,12 +8,6 @@ import lockImg from "./images/lock.png";
 
 const App = () => {
   const today = moment().format("dddd, MMMM Do, YYYY");
-  const date = {
-    dayOfTheWeek: moment().format("dddd"),
-    dayOfTheMonth: moment().format("D"),
-    month: moment().format("MMMM"),
-    year: moment().format("yyyy"),
-  };
 
   const [selectedDay, setSelectedDay] = useState(null);
   const [days, setDays] = useState(
@@ -61,9 +55,19 @@ const App = () => {
             selectedDay && selectedDay.date === day.date ? "day active" : "day"
           }
           key={index}
-          style={{ height: `${day.happiness}%` }}
           onClick={() => setSelectedDay(day)}
-        />
+        >
+          <div className="bar">
+            <div
+              className="progress"
+              style={{ height: `${day.happiness}%` }}
+            ></div>
+          </div>
+          <div className="date">
+            <p className="day">{moment(day.date).format("D")}</p>
+            <p className="month">{moment(day.date).format("MMM")}</p>
+          </div>
+        </div>
       ))}
       <div className="scratch"></div>
     </div>
