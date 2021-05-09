@@ -8,6 +8,12 @@ import lockImg from "./images/lock.png";
 
 const App = () => {
   const today = moment().format("dddd, MMMM Do, YYYY");
+  const date = {
+    dayOfTheWeek: moment().format("dddd"),
+    dayOfTheMonth: moment().format("D"),
+    month: moment().format("MMMM"),
+    year: moment().format("yyyy"),
+  };
 
   const [selectedDay, setSelectedDay] = useState(null);
   const [days, setDays] = useState(
@@ -16,7 +22,10 @@ const App = () => {
   const [happiness, setHappiness] = useState(75);
   const [text, setText] = useState("");
 
-  const loggedToday = days.some((day) => day.date === today);
+  const loggedToday = days.some(
+    (day) => moment(day.date).format("dddd, MMMM Do, YYYY") === today
+  );
+  console.log("loggedToday:", loggedToday);
 
   const submitLog = (event) => {
     event.preventDefault();
@@ -26,7 +35,7 @@ const App = () => {
       {
         happiness,
         text,
-        date: today,
+        date: new Date(),
       },
     ];
 
@@ -77,7 +86,9 @@ const App = () => {
       </p>
       <strong>Note:</strong>
       <p className="text">{selectedDay.text}</p>
-      <p className="date">{selectedDay.date}</p>
+      <p className="date">
+        {moment(selectedDay.date).format("dddd, MMMM Do, YYYY")}
+      </p>
       <div className="close" onClick={() => setSelectedDay(null)} title="close">
         ❌
       </div>
