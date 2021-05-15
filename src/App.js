@@ -106,7 +106,7 @@ const App = () => {
         min="1"
         max="100"
         value={happiness}
-        onChange={(e) => setHappiness(e.target.value)}
+        onChange={(e) => setHappiness(parseInt(e.target.value))}
       />
       <textarea
         required
